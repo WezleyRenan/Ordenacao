@@ -1,19 +1,20 @@
-package MergeSort;
+package Ordenada;
 
 import java.util.Arrays;
 
-public class Merge {
+public class Merge implements OrdenacaoInterface {
 
-	public static void main(String[] args) {
-		int[] v = { 4, 6, 7, 3, 5, 1, 2, 8 };
-		int[] w = new int[v.length];
-
-		mergeSort(v, w, 0, v.length - 1);
-		System.out.println(Arrays.toString(v));
+	@Override
+	public void ordenar(int[] vetor) throws Exception {
+		int[] w = new int[vetor.length];
+		if (vetor.length == 0) {
+			throw new Exception("vetor vazio");
+		}
+		mergeSort(vetor, w, 0, vetor.length - 1);
 
 	}
 
-	private static void mergeSort(int[] v, int[] w, int ini, int fim) {
+	public void mergeSort(int[] v, int[] w, int ini, int fim) {
 		if (ini < fim) {
 			int meio = (ini + fim) / 2;
 			mergeSort(v, w, ini, meio);
@@ -22,7 +23,8 @@ public class Merge {
 
 		}
 	}
-	private static void intercalar(int[] v, int[] w, int ini, int meio, int fim) {
+
+	public void intercalar(int[] v, int[] w, int ini, int meio, int fim) {
 		for (int k = ini; k <= fim; k++)
 			w[k] = v[k];
 

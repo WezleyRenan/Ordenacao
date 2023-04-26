@@ -1,26 +1,16 @@
-package QuickSort;
+package Ordenada;
 
-public class Quick {
-
-	public static void main(String[] args) {
-
-		int[] vetor = { 2, 6, 3, 5, 1, 4 };
-
-		System.out.println("Desordenado");
-		for (int i = 0; i < vetor.length; i++) {
-			System.out.print(vetor[i] + " ");
-		}
-		System.out.println(" ");
-		System.out.println("ordenado");
-		quicksort(vetor,0,vetor.length-1);
-		for (int i = 0; i < vetor.length; i++) {
-			System.out.print(vetor[i] + " ");
-		}
-
+public class Quick implements OrdenacaoInterface{
 		/// quicksort///
 
+	@Override
+	public void ordenar(int[] vetor) throws Exception {
+		if (vetor.length == 0) {
+			throw new Exception("vetor vazio");
+		}
+		quicksort(vetor,0,vetor.length-1);
+		
 	}
-
 	static void quicksort(int[] vetor, int esquerda, int direita) {
 		if (esquerda < direita) {
 			int p = particao(vetor, esquerda, direita);
